@@ -1,0 +1,14 @@
+git 
+/FinalProject/vs
+/FinalProject/Business/bin
+/FinalProject/Business/obj
+/FinalProject/Core/bin
+/FinalProject/Core/obj
+/FinalProject/DataAccess/bin
+/FinalProject/DataAccess/obj
+/FinalProject/Entities/bin
+/FinalProject/Entities/obj
+/FinalProject/FinalProject/bin
+/FinalProject/FinalProject/obj
+/FinalProject/WebAPI2/bin
+/FinalProject/WebAPI2/obj
