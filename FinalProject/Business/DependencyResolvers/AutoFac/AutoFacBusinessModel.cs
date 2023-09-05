@@ -8,7 +8,6 @@ using Core.Utilities.Security.Jwt;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
-using System;
 
 
 namespace Business.DependencyResolvers.AutoFac

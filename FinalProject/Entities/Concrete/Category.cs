@@ -1,12 +1,7 @@
-﻿
-using Core.Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.Entities.Abstract;
 
 namespace Entities.Concrete
 {
-    // Ciplak Class Qalmasin !!!
     public class Category: IEntity
     {
         public int CategoryID { get; set; }

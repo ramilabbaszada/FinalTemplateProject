@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Claims;
 using Business.Message;
 using Castle.DynamicProxy;
 using Core.Extensions;

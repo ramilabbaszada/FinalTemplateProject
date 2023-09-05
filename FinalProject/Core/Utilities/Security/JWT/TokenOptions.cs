@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.Utilities.Security.JWT
+﻿namespace Core.Utilities.Security.JWT
 {
     public class TokenOptions
     {
@@ -11,5 +7,4 @@ namespace Core.Utilities.Security.JWT
         public int AccessTokenExpiration { get; set; }
         public string SecurityKey { get; set; }
     }
-    
 }

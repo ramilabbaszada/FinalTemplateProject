@@ -1,9 +1,4 @@
-﻿
-
-using Core.Entities.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.Entities.Abstract;
 
 namespace Entities.Concrete
 {
@@ -14,6 +9,5 @@ namespace Entities.Concrete
         public string ProductName { get; set; }
         public short UnitsInStock { get; set; }
         public decimal UnitPrice { get; set; }
-
     }
 }

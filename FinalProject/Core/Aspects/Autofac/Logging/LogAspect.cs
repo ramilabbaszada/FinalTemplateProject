@@ -1,11 +1,9 @@
 ﻿using Castle.DynamicProxy;
-using Core.Utilities.Interceptors;
-using System.Collections.Generic;
-using System;
 using Core.CrossCuttingConcerns.Logging.Log4Net;
-using Core.Utilities.Messages;
 using Core.CrossCuttingConcerns.Logging;
-using Core.Utilities.Results.Abstract;
+using Core.Utilities.Interceptors;
+using System;
+using System.Collections.Generic;
 
 namespace Core.Aspects.Autofac.Logging
 {
@@ -34,34 +32,26 @@ namespace Core.Aspects.Autofac.Logging
             _loggerServiceBase.Error(GetLogDetailWithException(invocation, e));
         }
 
-
-
         private LogDetailWithException GetLogDetailWithException(IInvocation invocation, Exception e)
         {
-
-
             var logDetailWithException = new LogDetailWithException
             {
                 MethodName = invocation.Method.Name,
                 LogParameters = GetLogParameters(invocation),
-                DateAndTime=DateTime.UtcNow,
-                ExceptionMessage = e.StackTrace
+                DateAndTime = DateTime.UtcNow,
+                ExceptionMessage = e.Message+e.StackTrace
             };
-
             return logDetailWithException;
         }
 
         private LogDetail GetLogDetail(IInvocation invocation)
         {
-
-
             var logDetail = new LogDetail
             {
                 MethodName = invocation.Method.Name,
                 LogParameters = GetLogParameters(invocation),
-                DateAndTime=DateTime.UtcNow
+                DateAndTime = DateTime.UtcNow
             };
-
             return logDetail;
         }
 
@@ -79,7 +69,5 @@ namespace Core.Aspects.Autofac.Logging
             }
             return logParameters;
         }
-
-
     }
 }

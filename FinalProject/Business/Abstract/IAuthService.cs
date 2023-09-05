@@ -10,7 +10,7 @@ namespace Business.Abstract
     {
         Task<IDataResult<User>> Register(UserForRegisterDto userForRegisterDto, string password);
         Task<IDataResult<User>> Login(UserForLoginDto userForLoginDto);
-        Task<IResult> UserExists(string email);
+        Task<IDataResult<User>> UserExists(string email);
         Task<IDataResult<AccessToken>> CreateAccessTokenAsync(User user);
     }
 }

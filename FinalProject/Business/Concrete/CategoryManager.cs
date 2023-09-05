@@ -1,11 +1,11 @@
 ﻿using Business.Abstract;
+using Core.Aspects.Autofac.Cashing;
+using Core.Aspects.PostSharp.Logging.concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.Concrete
@@ -19,14 +19,19 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        [DatabaseLogAspectAsync]
+        [FileLogAspectAsync]
+        [CasheAspect(10)]
         public async Task<IDataResult<List<Category>>> GetAll()
         {
-            return await _categoryDal.GetAll();
+            return new SuccessDataResult<List<Category>>( await _categoryDal.GetAll());
         }
 
+        [DatabaseLogAspectAsync]
+        [FileLogAspectAsync]
         public async Task<IDataResult<Category>> GetById(int categoryId)
         {
-            return await _categoryDal.Get(c => c.CategoryID == categoryId);
+            return new SuccessDataResult<Category>( await _categoryDal.Get(c => c.CategoryID == categoryId));
         }
 
     }

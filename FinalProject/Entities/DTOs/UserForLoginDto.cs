@@ -1,5 +1,4 @@
-﻿
-using Core.Entities.Abstract;
+﻿using Core.Entities.Abstract;
 
 namespace Entities.Dtos
 {

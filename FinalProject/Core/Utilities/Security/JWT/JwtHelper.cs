@@ -11,7 +11,6 @@ using Core.Extensions;
 using System.IdentityModel.Tokens.Jwt;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
-using System.Threading.Tasks;
 
 namespace Core.Utilities.Security.Jwt
 {

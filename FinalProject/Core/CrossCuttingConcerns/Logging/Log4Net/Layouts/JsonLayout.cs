@@ -1,13 +1,7 @@
 ﻿using log4net.Core;
 using log4net.Layout;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Core.CrossCuttingConcerns.Logging.Log4Net.Layouts

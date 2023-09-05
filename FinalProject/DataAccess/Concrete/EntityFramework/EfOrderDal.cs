@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Core.EntityFramework;
+﻿using Core.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
