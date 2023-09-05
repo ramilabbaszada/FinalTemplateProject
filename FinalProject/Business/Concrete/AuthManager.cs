@@ -73,7 +73,7 @@ namespace Business.Concrete
 
         [DatabaseLogAspectAsync]
         [FileLogAspectAsync]
-        public async Task<IDataResult<AccessToken>> CreateAccessTokenAsync(User user)
+        public async Task<IDataResult<AccessToken>> CreateAccessToken(User user)
         {
             var claims = await _userService.GetClaims(user);
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
 using Core.Aspects.Autofac.Cashing;
 using Core.Aspects.PostSharp.Logging.concrete;
 using Core.Entities.Concrete;
@@ -17,6 +18,17 @@ namespace Business.Concrete
         public UserManager(IUserDal userDal)
         {
             _userDal = userDal;
+        }
+
+        [DatabaseLogAspectAsync]
+        [FileLogAspectAsync]
+        public async Task<IDataResult<User>> GetByRefreshToken(string token)
+        {
+            User user = await _userDal.Get(user => user.RefreshToken == token);
+            if (user == null)
+                return new ErrorDataResult<User>(Messages.RefreshTokenContentError);
+
+            return new SuccessDataResult<User>(user);
         }
 
         [DatabaseLogAspectAsync]

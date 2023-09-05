@@ -18,6 +18,18 @@ builder.Services.AddSwaggerGen();
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
+builder.Services.AddCors((options) => {
+
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("https://localhost:3000")
+        .AllowAnyHeader()
+        .AllowCredentials();
+    });
+});
+
+builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutoFacBusinessModel()));
@@ -37,21 +49,30 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+
+app.ConfigureCustomExceptionMiddleware();
+
+app.UseMiddleware<RefreshTokenMiddleware>();
+
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseCors();
+
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllers();
+});
 
 app.Run();
