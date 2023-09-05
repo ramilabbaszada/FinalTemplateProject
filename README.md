@@ -18,3 +18,6 @@ Transaction service
 Performance service
 Validation service
 Exception handling service
+
+Note: In order for proper functionality, it is necessary to install PostSharp on the host computer, which can be accomplished by accessing the following link: 
+https://marketplace.visualstudio.com/items?itemName=PostSharpTechnologies.PostSharp
